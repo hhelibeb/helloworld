@@ -1,19 +1,131 @@
-﻿.logo li a
-	{
-		display:"block";
-		height:200px;
-		width:200px;
-		border :3px solid grey;
-		border-radius:50%;
-		position: absolute;
-        left: 10%;       
-        top: 80px;
-	}
-.logo li a:hover
-	{
-		box-shadow: 0px 0px 10px #9edeff;
-	}
-		.logo li a{
-		background:url(1.jpg) repeat center;
-		background-size:100%;		
-	}
+﻿		li {
+		list-style-type:none;
+		margin-bottom:-2px;
+		}
+		.logo>li a
+		{
+			display:"block";
+			height:200px;
+			width:200px;
+			border :3px solid grey;
+			border-radius:50%;
+			position: absolute;
+            left: 10%;       
+            top: 80px;
+		}
+		.logo>li a:hover
+		{
+			box-shadow: 0px 0px 10px #9edeff;
+		}
+		.logo>li a{
+			background:url(1.jpg) repeat center;
+			background-size:100%;		
+		}
+	
+		.img li
+		{
+			display:none;
+			width:800px;
+			height:450px;
+			border:2px soild black;
+			border-radius:10px;
+			position: absolute;   
+			left:400px;
+            top: 40px;	
+		}
+		#img1
+		{
+			background: url(img1.jpg) no-repeat;
+			background-size:100%;	
+		}
+		#img2
+		{
+			background: url(img2.jpg) no-repeat;
+			background-size:100%;	
+		}
+		#img3
+		{
+			background: url(img3.jpg) no-repeat;
+			background-size:100%;	
+		}
+		#img4
+		{
+			background: url(img4.jpg) no-repeat;
+			background-size:100%;	
+		}
+		#btns
+		{
+			position:absolute;
+			left:1200px;	
+			top:40px;
+		}
+		#btns span
+		{
+			opacity:0;
+		}
+		.num
+		{	
+			background-color;
+			margin:0px;
+			padding:0 15px;
+			display:inline-block;
+			width:20px;
+			height:112px;			
+			text-align:center;
+			padding-top:0;	
+			border-radius:10px;
+			opacity:0.5;
+		}
+		#a1{background-color:green;border:1px solid green;}
+		#a2{background-color:orange;border:1px solid orange;}
+		#a3{background-color:red;border:1px solid orange;}
+		#a4{background-color:blue;border:1px solid orange;}
+		@Keyframes a1
+		{
+			from{opacity:0;}
+			to{opacity:1;}
+		}
+		@Keyframes a2
+		{
+			display:block;
+			from{opacity:1;}
+			to{opacity:0;}
+		}
+		.num:hover
+		{
+			cursor:pointer;
+
+		}		
+
+		/*
+		#a2:hover ~ .img #img2
+		{	
+			display:block;
+			animation: a1 3s ease-out 0s;
+		}
+		#a3:hover ~ .img #img3
+		{	
+			display:block;
+			animation: a1 3s ease-out 0s;
+		}
+		#a4:hover ~ .img #img4
+		{	
+			display:block;
+			animation: a1 3s ease-out 0s;
+		}*/	
+		#img1:target {
+			display:block;
+			animation: a1 3s ease-out 0s;			
+		}
+		#img2:target {
+			display:block;
+			animation: a1 3s ease-out 0s;			
+		}
+		#img3:target {
+			display:block;
+			animation: a1 3s ease-out 0s;			
+		}
+		#img4:target {
+			display:block;
+			animation: a1 3s ease-out 0s;			
+		}
