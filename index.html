@@ -7,22 +7,106 @@
     <title>头像</title>
 	<link type="text/css" rel="stylesheet" href="style.css">
  	<script type="text/javascript" src="jquery-1.12.3.js"></script>
+	<style>
+		p{display:inline;}
+		div
+		{
+			white-space:nowrap;
+		}
+		.box>p
+		{
+			display:block;
+			width:100px;
+			height:100px;
+			border:3px solid black;
+		}
+		.setDiv
+		{
+			display:none;
+		}
+	</style>
+
   </head>
   <body>
-	<div class = logo>
-		<li><a href="#"></a></li></div>
-	<div id="btns">
-			<li id="l1"><a id="a1" class="num">1</a></li>
-			<li id="l2"><a id="a2" class="num">2</a></li>
-			<li id="l3"><a id="a3" class="num">3</a></li>
-			<li id="l4"><a id="a4" class="num">4</a></li>
-			<div class = img>
-				<li id="img1"></li>	
-				<li id="img2"></li>	
-				<li id="img3"></li>	
-				<li id="img4"></li>	
-			</div>
+	<div><p>请为下面的DIV设置样式：<button id="settings" >点击设置</button>
+		</p>
+	</div>
+	<div class="box"><p id="b"></p></div>
+	<div class="setDiv">
+		<div class="colors">
+			<p>请选择背景色:</p>
+			<p id="red">红</p>
+			<p id="blue">蓝</p>
+			<p id="yellow">黄</p>
+		</div>
+		<div class="widt">
+			<p>请选择宽(px):</p>
+			<p id="wtwo">200</p>
+			<p id="wthree">300</p>
+			<p id="wfour">400</p>
+		</div>
+		<div class="heigh">
+			<p>请选择高(px):</p>
+			<p id="htwo">200</p>
+			<p id="hthree">300</p>
+			<p id="hfour">400</p>
+		</div>
+		<br/>
+		<button id="restore">恢复</button>
+		<button id="confirm">确定</button>
 	</div>
   </body>
+  	<script>
+		$('#settings').click(function()
+		{
+			$('.setDiv').css("display","block");		
+		});
+		$('#restore').click(function()
+		{
+			$('.box>p').css("background-color","white");
+			$('.box>p').css("width","0px").css("width","100px");	
+			$('.box>p').css("height","0px").css("height","100px");
+		});
+		$('#confirm').click(function()
+		{
+			$('.setDiv').css("display","block");		
+		});
+		$('#red').click(function()
+		{
+			$('.box>p').css("background-color","red");		
+		});
+		$('#blue').click(function()
+		{
+			$('.box>p').css("background-color","blue");		
+		});
+		$('#yellow').click(function()
+		{
+			$('.box>p').css("background-color","yellow");		
+		});
+		$('#wtwo').click(function()
+		{
+			$('.box>p').css("width","0px").css("width","200px");		
+		});
+		$('#wthree').click(function()
+		{
+			$('.box>p').css("width","0px").css("width","300px");		
+		});
+		$('#wfour').click(function()
+		{
+			$('.box>p').css("width","0px").css("width","400px");		
+		});
+		$('#htwo').click(function()
+		{
+			$('.box>p').css("height","0px").css("height","200px");		
+		});
+		$('#hthree').click(function()
+		{
+			$('.box>p').css("height","0px").css("height","300px");		
+		});
+		$('#hfour').click(function()
+		{
+			$('.box>p').css("height","0px").css("height","400px");		
+		});
+	</script>
 </html>
 
