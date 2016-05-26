@@ -23,7 +23,7 @@
 	
 		.img li
 		{
-			
+			display:none;
 			width:800px;
 			height:450px;
 			border:2px soild black;
@@ -36,23 +36,19 @@
 		{
 			background: url(img1.jpg) no-repeat;
 			background-size:100%;	
-			opacity:0;
 		}
 		#img2
 		{
 			background: url(img2.jpg) no-repeat;
-			background-size:100%;
-			opacity:0;			
+			background-size:100%;	
 		}
 		#img3
 		{
-			opacity:0;
 			background: url(img3.jpg) no-repeat;
 			background-size:100%;	
 		}
 		#img4
 		{
-			opacity:0;
 			background: url(img4.jpg) no-repeat;
 			background-size:100%;	
 		}
@@ -64,21 +60,22 @@
 		}
 		.num
 		{
+
 			background-color;
 			margin:0px;
 			padding:0 15px;
 			display:inline-block;
 			width:20px;
-			height:80px;			
+			height:110px;			
 			text-align:center;
 			padding-top:0;	
-			border:2px soild black;
 			border-radius:10px;
-		}		
-		#a1{background-color:green;border:1px solid green;opacity:0}
-		#a2{background-color:orange;border:1px solid orange;opacity:0}
-		#a3{background-color:red;border:1px solid red;opacity:0}
-		#a4{background-color:blue;border:1px solid blue;opacity:0}
+			opacity:0.5;
+		}
+		#a1{background-color:green;border:1px solid green;}
+		#a2{background-color:orange;border:1px solid orange;}
+		#a3{background-color:red;border:1px solid orange;}
+		#a4{background-color:blue;border:1px solid orange;}
 		@Keyframes a1
 		{
 			from{opacity:0;}
@@ -89,63 +86,35 @@
 			cursor:pointer;
 
 		}		
-		/*#l1:hover ~ .img #img1
+		#l1:hover ~ .img #img1
 		{	
-			animation-name:a1;
-			animation-duration: 1.5s;
-			animation-timing-function: ease-out;
-			animation-delay: 0s;
-			animation-fill-mode: both; 
-		}*/
-		/*#l1:hover .num{
+			display:block;
+			animation: a1 3s ease-out 0s;
+		}
+		#l1:hover .num{
 			opacity:0.8;
 		}
 		#l2:hover .num{
-			opacity:0.8;
+			opacity:1;
 		}
 		#l3:hover .num{
-			opacity:0.8;
+			opacity:1;
 		}
 		#l4:hover .num{
-			opacity:0.8;
-		}*/
-		/*#l2:hover ~ .img #img2
+			opacity:1;
+		}
+		#l2:hover ~ .img #img2
 		{	
-			 animation-name:a1;
-			animation-duration: 1.5s;
-			animation-timing-function: ease-out;
-			animation-delay: 0s;
-			animation-fill-mode: both; 
+			display:block;
+			animation: a1 2s ease-out 0s;
 		}
 		#l3:hover ~ .img #img3
 		{	
-			 animation-name:a1;
-			animation-duration: 1.5s;
-			animation-timing-function: ease-out;
-			animation-delay: 0s;
-			animation-fill-mode: both; 
+			display:block;
+			animation: a1 2s ease-out 0s;
 		}
 		#l4:hover ~ .img #img4
 		{	
-			 animation-name:a1;
-			animation-duration: 1.5s;
-			animation-timing-function: ease-out;
-			animation-delay: 0s;
-			animation-fill-mode: both; 
-		}*/
-		#img1 { animation:fade 12s ease-out 0s infinite;}		
-		#img2 { animation:fade 12s ease-out 3s infinite;}
-		#img3 {animation:fade 12s ease-out 6s infinite;}
-		#img4 { animation:fade 12s ease-out 9s infinite;}
-		@keyframes fade {
-			5%, 25% { opacity:1;}
-			30% { opacity:0;}			
-		}
-		#a1 { animation:button1 12s ease 0s infinite ;}
-		#a2 { animation:button1 12s ease 3s infinite;}
-		#a3 { animation:button1 12s ease 6s  infinite;}
-		#a4 { animation:button1 12s ease 9s  infinite;}
-		@keyframes button1 {
-			5%, 25% { opacity:0.6;}
-			30% { opacity:0;}	
+			display:block;
+			animation: a1 2s ease-out 0s;
 		}
