@@ -9,10 +9,6 @@
  	<script type="text/javascript" src="jquery-1.12.3.js"></script>
 	<style>
 		p{display:inline;}
-		div
-		{
-			white-space:nowrap;
-		}
 		.box>p
 		{
 			display:block;
@@ -20,10 +16,17 @@
 			height:100px;
 			border:3px solid black;
 		}
-		.setDiv
-		{
-			display:block;
-		}
+		.setDiv{display:inline-block;}
+		.pointer{width:20px;color:white;}
+		.pointer:hover{cursor:pointer;}
+		.colors,.width {margin-bottom:5px;margin-top:5px}
+		.height {margin-bottom:-6px;margin-top:5px}
+		.colors p[data-value] {padding:0 7px;border:1px solid white;}
+		.colors p[data-value]:hover	{border:1px solid black;}
+		.colors p[data-value="red"] {background-color:#00CCCC;}
+		.colors p[data-value="blue"] {background-color:blue;}
+		.colors p[data-value="yellow"] {background-color:#FF99CC;}
+		.width p[data-value],.height p[data-value]{padding:0 2px;border:1px solid black;color:black;background-color:#CCFFFF}
 	</style>
 
   </head>
@@ -35,46 +38,51 @@
 	<div class="setDiv">
 		<div class="colors">
 			<p>请选择背景色:</p>
-			<p class="background-color" data-value="red">红</p>
-			<p class="background-color" data-value="blue">蓝</p>
-			<p class="background-color" data-value="yellow">黄</p>
+			<p class="background-color pointer" data-value="red">红</p>
+			<p class="background-color pointer" data-value="blue">蓝</p>
+			<p class="background-color pointer" data-value="yellow">黄</p>
 		</div>
 		<div class="width">
 			<p>请选择宽(px):</p>
-			<p class="width" data-value="200px">200</p>
-			<p class="width" data-value="300px">300</p>
-			<p class="width"data-value="400px">400</p>
+			<p class="width pointer" data-value="200px">200</p>
+			<p class="width pointer" data-value="300px">300</p>
+			<p class="width pointer"data-value="400px">400</p>
 		</div>
 		<div class="height">
 			<p>请选择高(px):</p>
-			<p class="height" data-value="200px">200</p>
-			<p class="height" data-value="300px">300</p>
-			<p class="height" data-value="400px">400</p>
+			<p class="height pointer" data-value="200px">200</p>
+			<p class="height pointer" data-value="300px">300</p>
+			<p class="height pointer" data-value="400px">400</p>
 		</div>
 		<br/>
-		<button id="restore">恢复</button>
-		<button id="confirm">确定</button>
+		<div class="rc">
+			<button id="restore">恢复</button>
+			<button id="confirm">确定</button>
+		</div>
 	</div>
   </body>
   	<script>
-		/*设置*/
+		/*修改属性*/
 		$('.setDiv p').click(function()
 		{
-			var key=($(this).attr('class'));
+			var cla=($(this).attr('class'));			
+			var key=(cla.split(" "))[0];
 			var value=($(this).attr("data-value"));
 			$('.box>p').css(key,value);		
 		});
-		
+		/*设置按钮*/
 		$('#settings').click(function()
 		{
 			$('.setDiv').css("display","block");		
 		});
+		/*恢复按钮*/
 		$('#restore').click(function()
 		{
 			$('.box>p').css("background-color","white");
 			$('.box>p').css("width","0px").css("width","100px");	
 			$('.box>p').css("height","0px").css("height","100px");
 		});
+		/*确定按钮*/
 		$('#confirm').click(function()
 		{
 			$('.setDiv').css("display","none");		
