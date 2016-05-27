@@ -57,30 +57,65 @@
 	</div>
   </body>
   	<script>
-		/*修改属性*/
+		/*设置*/
 		$('.setDiv p').click(function()
 		{
 			var key=($(this).attr('class'));
 			var value=($(this).attr("data-value"));
 			$('.box>p').css(key,value);		
 		});
-		/*设置按钮*/
+		
 		$('#settings').click(function()
 		{
 			$('.setDiv').css("display","block");		
 		});
-		/*恢复按钮*/
 		$('#restore').click(function()
 		{
 			$('.box>p').css("background-color","white");
 			$('.box>p').css("width","0px").css("width","100px");	
 			$('.box>p').css("height","0px").css("height","100px");
 		});
-		/*确定按钮*/
 		$('#confirm').click(function()
 		{
 			$('.setDiv').css("display","none");		
 		});
+		/*
+		$('#red').click(function()
+		{
+			$('.box>p').css("background","red");		
+		});
+		$('#blue').click(function()
+		{
+			$('.box>p').css("background-color","blue");		
+		});
+		$('#yellow').click(function()
+		{
+			$('.box>p').css("background-color","yellow");		
+		});
+		$('#wtwo').click(function()
+		{
+			$('.box>p').css("width","0px").css("width","200px");		
+		});
+		$('#wthree').click(function()
+		{
+			$('.box>p').css("width","0px").css("width","300px");		
+		});
+		$('#wfour').click(function()
+		{
+			$('.box>p').css("width","0px").css("width","400px");		
+		});
+		$('#htwo').click(function()
+		{
+			$('.box>p').css("height","0px").css("height","200px");		
+		});
+		$('#hthree').click(function()
+		{
+			$('.box>p').css("height","0px").css("height","300px");		
+		});
+		$('#hfour').click(function()
+		{
+			$('.box>p').css("height","0px").css("height","400px");		
+		});*/
 		
 	</script>
 </html>
