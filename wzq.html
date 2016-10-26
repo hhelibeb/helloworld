@@ -186,9 +186,6 @@ var controller = {
 			this.ctx.moveTo(i * rate, 0);
 			this.ctx.lineTo(i * rate, width);
 			this.ctx.stroke();
-		}
-		for(var i = 1; i < (lineNums - 1); i++)
-		{
 			this.ctx.moveTo(0, i * rate);
 			this.ctx.lineTo(width, i * rate);
 			this.ctx.stroke();
