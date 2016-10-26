@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <meta charset="utf-8">
-<head>
-	<title>五子棋</title>
-</head>
-
-<style>
-
-</style>
-
+<head></head>
 <body>
 <canvas id="myCanvas" width="560" height="560" style="border:3px solid black;">
 您的浏览器不支持 HTML5 canvas 标签。</canvas>
@@ -16,11 +9,6 @@
 <button id="reset" onclick="controller.init()">重置</button>
 </body>
 <script>
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-var lineNums = 15;
-var rate = 40;
-var width = (lineNums - 1) * rate;
 
 var controller = {
 	round:true,
@@ -30,6 +18,7 @@ var controller = {
 	row:0,
 	col:0,
 	over:false,
+	ctx,
 	trans:function()
 	{		
 		this.round = !this.round;
@@ -132,6 +121,9 @@ var controller = {
 		{
 			this.over = true;
 			this.gameOver();
+		}
+		else
+		{
 		}	
 	},
 	initArray:function(array)
@@ -157,23 +149,24 @@ var controller = {
 	},
 	gameOver:function()
 	{
-		ctx.font="36px Arial";
-		ctx.fillStyle = "#FF0000";
+		this.ctx.font="30px Arial";
+		this.ctx.fillStyle = "#FF0000";
 		if(this.round)
 		{
-			ctx.fillText("白棋胜利",240,240);
+			this.ctx.fillText("白棋胜利",240,240);
 		}
 		else
 		{
-			ctx.fillText("黑棋胜利",240,240);
+			this.ctx.fillText("黑棋胜利",240,240);
 		}
 	},
-	init:function()
+	init:function(context)
 	{
-		ctx.beginPath();
-		ctx.clearRect(0,0,width,width);
-		ctx.fillStyle = "#FFBB00";
-		ctx.fillRect(0,0,width,width);
+		this.ctx = context;
+		this.ctx.beginPath();
+		this.ctx.clearRect(0,0,width,width);
+		this.ctx.fillStyle = "#FFBB00";
+		this.ctx.fillRect(0,0,width,width);
 		this.drawBoard();
 		for(i = 0; i<= lineNums; i++) 
 		{ 
@@ -190,36 +183,27 @@ var controller = {
 	{
 		for(var i = 1; i < (lineNums - 1); i++)
 		{
-			ctx.moveTo(i * rate, 0);
-			ctx.lineTo(i * rate, width);
-			ctx.stroke();
+			this.ctx.moveTo(i * rate, 0);
+			this.ctx.lineTo(i * rate, width);
+			this.ctx.stroke();
 		}
 		for(var i = 1; i < (lineNums - 1); i++)
 		{
-			ctx.moveTo(0, i * rate);
-			ctx.lineTo(width, i * rate);
-			ctx.stroke();
+			this.ctx.moveTo(0, i * rate);
+			this.ctx.lineTo(width, i * rate);
+			this.ctx.stroke();
 		}
-	}
-};
- 
-//report the mouse position on click 
- canvas.addEventListener("click", function (evt) 
- { 
-	var mousePos = getMousePos(canvas, evt); 
-	mousePos.x = getNode(mousePos.x);
-	mousePos.y = getNode(mousePos.y);
-  
-  	var exsit = controller.ifExsit(mousePos.x, mousePos.y);
-	var over = controller.over;
-	if (!exsit && !over)
+	},
+	drawPiece:function(posX, posY)
 	{
-	  drawPiece(mousePos.x, mousePos.y, ctx, controller.color); 
-	  controller.trans();
-	} 
- }, false); 
+		this.ctx.beginPath();
+		this.ctx.arc(posX, posY, rate/2, 0, 2*Math.PI);
+		this.ctx.fillStyle = this.color;
+		this.ctx.fill();
+		this.ctx.stroke();					
+	}
+}; 
 
- //Get Mouse Position 
  function getMousePos(canvas, evt) { 
    var rect = canvas.getBoundingClientRect(); 
    return { 
@@ -228,26 +212,30 @@ var controller = {
    }
  }
 
-function drawPiece(posX, posY, ctx, color)
-{
-	ctx.beginPath();
-	ctx.arc(posX, posY, rate/2, 0, 2*Math.PI);
-	ctx.fillStyle = color;
-	ctx.fill();
-	ctx.stroke();					
-}
 function getNode(pos)
 {
 	return ((pos/rate).toFixed())*rate;
 }
 
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var lineNums = 15;
+var rate = 40;
+var width = (lineNums - 1) * rate;
 
+controller.init(ctx); 	
 
-
-controller.init();	 
-	 	  
-	 
-	 
+ canvas.addEventListener("click", function (evt) 
+ { 
+	var mousePos = getMousePos(canvas, evt); 
+	mousePos.x = getNode(mousePos.x);
+	mousePos.y = getNode(mousePos.y);
+  	var exsit = controller.ifExsit(mousePos.x, mousePos.y);
+	if (!exsit && !controller.over)
+	{
+	  controller.drawPiece(mousePos.x, mousePos.y); 
+	  controller.trans();
+	} 
+ }, false); 	
 </script>
-
 </html>
