@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <meta charset="utf-8">
@@ -65,11 +66,19 @@ var controller = {
 			}
 			if(this.inBounds(x1) && this.inBounds(y2))
 			{
-				arr3[x1] = table[x1][y2];						
+				arr3[x1] = table[x1][y2];
+			}
+			if(this.inBounds(x1) && this.inBounds(y1))
+			{
+				arr4[x1] = table[x1][y1];				
+			}
+			if(this.inBounds(x2) && this.inBounds(y1))
+			{
+				arr3[x2] = table[x2][y1];
 			}
 			if(this.inBounds(x2) && this.inBounds(y2))
 			{
-				arr4[x2] = table[x2][y2];
+				arr4[x2] = table[x2][y2];				
 			}
 			n = n + 1;
 		} 
@@ -162,7 +171,9 @@ var controller = {
 	},
 	init:function(context)
 	{
+		this.seq = false;
 		this.color = "black";
+		this.over = false;
 		this.ctx = context;
 		this.ctx.beginPath();
 		this.ctx.clearRect(0,0,width,width);
