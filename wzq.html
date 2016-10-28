@@ -184,7 +184,9 @@ controller.init(ctx);
 
  canvas.addEventListener("click", function (evt) { 
 	var mousePos = getMousePos(canvas, evt); 
-  	var exsit = controller.ifExsit(getNode(mousePos.x), getNode(mousePos.y));
+	mousePos.x = getNode(mousePos.x);
+	mousePos.y = getNode(mousePos.y);
+  	var exsit = controller.ifExsit(mousePos.x, mousePos.y);
 	if (!exsit && !controller.over){
 	  controller.drawPiece(mousePos.x, mousePos.y); 
 	  controller.trans();
