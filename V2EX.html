@@ -1,31 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <meta charset="utf-8">
+
 <head>
-<title>V2EX</title>
+    <title>V2EX</title>
 </head>
 
 <style>
-
-ul{list-style-type:none; margin:0;width:100%; } 
-ul li{ width:80px; float:left;} 
+#Top {
+    text-align: center;
+    background-color: #fff;
+    height: 44px;
+    font-size: 15px;
+    font-weight: 500;
+    background-size: 44px 44px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+    padding: 0px 20px 0px 20px;
+}
+#q {
+    display: block;
+    border: none;
+    width: 222px;
+    height: 26px;
+    margin: 0px 0px 2px 30px;
+    background-color: transparent;
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti !important;
+    font-size: 12px;
+    line-height: 16px;
+    outline: none;
+}
+a.top:hover {
+    color: #99a;
+    text-decoration: none;
+}
+a.top:link, a.top:visited {
+    color: #556;
+    text-decoration: none;
+}
+a:hover {
+    color: #4d5256;
+    text-decoration: underline;
+}
+a:link, a:visited, a:active {
+    color: #778087;
+    text-decoration: none;
+    word-break: break-all;
+}
+.content {
+    min-width: 600px;
+    max-width: 1100px;
+    margin: 0px auto 0px auto;
+}
 </style>
 <script type="text/JavaScript" src="jquery-3.1.1.min.js"></script>
-<body>
-<div id="navigator"> 
-    <div id="logo"> </div>
-    <div id="search"></div>
-    <div id="navbut">
-        <ul>
-            <li>首页</li>
-            <li id="userid"></li>
-            <li>工作空间</li>
-            <li>记事本</li>
-            <li>时间轴</li>
-            <li>设置</li>
-            <li>登出</li>
+
+<body style="text-align: center; min-width: 820px;">
+    <div style="padding-top: 6px;">
+
+    <div id="Top">
+        <div class="content">
+            <div style="padding-top: 6px;" margin:>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                    <td width="110" align="left"><a href="/" name="top" title="way to explore"><img src="//cdn.v2ex.co/site/logo@2x.png?m=1346064962" border="0" align="default" alt="V2EX" width="94" height="30" text-align="-moz-left" /></a></td>
+                    <td width="auto" align="left">
+                        <div id="Search"><form onsubmit="return dispatch()"><div style="width: 276px; height: 28px; background-size: 276px 28px; background-image: url('/static/img/qbar_light@2x.png'); background-repeat: no-repeat; display: inline-block;"><input type="text" maxlength="40" name="q" id="q" value="" /></div></form></div>
+                    </td>
+                    <td width="570" align="right" style="padding-top: 2px;"><a href="/" class="top">首页</a>&nbsp;&nbsp;&nbsp;<a href="/member/CruelMoon" class="top">CruelMoon</a>&nbsp;&nbsp;&nbsp;<a href="https://workspace.v2ex.com/" target="_blank" class="top">工作空间</a>&nbsp;&nbsp;&nbsp;<a href="/notes" class="top">记事本</a>&nbsp;&nbsp;&nbsp;<a href="/t" class="top">时间轴</a>&nbsp;&nbsp;&nbsp;<a href="/settings" class="top">设置</a>&nbsp;&nbsp;&nbsp;<a href="#;" onclick="if (confirm('确定要从 V2EX 登出？')) { location.href= '/signout?once=63909'; }" class="top">登出</a></td>
+                </tr>
+            </table>
+            </div>
+        </div>
     </div>
 </body>
 <script>
 </script>
+
 </html>
